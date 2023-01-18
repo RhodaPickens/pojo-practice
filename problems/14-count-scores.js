@@ -26,10 +26,23 @@ let peeps = [
 ];
 console.log(countScores(peeps)); //=> { Anthony: 4, Fred: 4, Winnie: 6 }
 ***********************************************************************/
+// iterate thru array, deconstruct into variables, add to new object, see if there already and if there then add score
 
 function countScores(people) {
-  // Your code here
+  let totals = {};
+  for (let i = 0; i < people.length; i++) {
+    let person = people[i];
+    let { name, score } = person;
+
+    if (totals[name] === undefined) {
+      totals[name] = score;
+    } else {
+      totals[name] += score;
+    }
+  }
+  return totals;
 }
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 module.exports = countScores;
