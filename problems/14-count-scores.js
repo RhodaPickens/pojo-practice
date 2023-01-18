@@ -30,12 +30,15 @@ console.log(countScores(peeps)); //=> { Anthony: 4, Fred: 4, Winnie: 6 }
 
 function countScores(people) {
   let totals = {};
+  // iterate through array of objects
   for (let i = 0; i < people.length; i++) {
     let person = people[i];
+    // deconstruct each person object into variables
     let { name, score } = person;
-
+    // check if name is already in the new object, if it's not add it
     if (totals[name] === undefined) {
       totals[name] = score;
+      // if it's already there, add the score to the score that's there already
     } else {
       totals[name] += score;
     }
